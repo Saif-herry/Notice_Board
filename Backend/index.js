@@ -7,10 +7,13 @@ app.use(express.json())
 app.use(cors())
 
 const connection = require('./config')
+const NoticeRouter = require('./routes/Notice.routes')
 
 app.get('/',(req,res)=>{
     res.send("welcome in Notice Board!")
 })
+
+app.use('/notice',NoticeRouter)
 
 const PORT = process.env.PORT || 8080
 
